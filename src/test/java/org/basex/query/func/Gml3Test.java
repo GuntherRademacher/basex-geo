@@ -48,7 +48,7 @@ public abstract class Gml3Test extends GmlTest {
         + "<gml:pointMember><gml:Point><gml:pos>1 1</gml:pos></gml:Point></gml:pointMember>"
         + "<gml:pointMember><gml:Point><gml:pos>1 2</gml:pos></gml:Point></gml:pointMember>"
         + "</gml:MultiPoint>"),
-        "#gml:MultiPoint");
+        "#Q{" + gmlUri() + "}MultiPoint");
 
     error(args(func, " text { 'srsName' }"), INVTYPE_X);
     error(args(func, " <gml:unknown/>"), GEO_READ);

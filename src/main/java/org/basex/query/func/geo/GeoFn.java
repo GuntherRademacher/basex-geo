@@ -16,8 +16,10 @@ import org.basex.io.*;
 import org.basex.query.*;
 import org.basex.query.func.*;
 import org.basex.query.iter.*;
+import org.basex.query.value.*;
 import org.basex.query.value.item.*;
 import org.basex.query.value.node.*;
+import org.basex.query.value.seq.*;
 import org.basex.query.value.type.*;
 import org.basex.util.*;
 import org.eclipse.emf.common.util.*;
@@ -235,16 +237,18 @@ public abstract class GeoFn extends StandardFunc {
    * @return DBNode database node
    * @throws QueryException exception
    */
-  final GNode toElement(final Geometry geometry, final GNode node) throws QueryException {
+  final Value toElement(final Geometry geometry, final GNode node) throws QueryException {
     if (geometry.isEmpty()) {
-      return null;
+      return Empty.VALUE;
     }
     final String geo;
     switch(GmlDialect.of(node)) {
       case GML2:
         try {
           // Use JTS for serialization to GML2
-          geo = new GMLWriter().write(geometry);
+          geo = new GMLWriter().write(geometry).
+              replaceAll(">\\s*\\n\\s*", ">").
+              replaceAll("\\s*\\n\\s*<", "<");
         } catch (final Exception ex) {
           throw GEO_WRITE.get(info, ex);
         }

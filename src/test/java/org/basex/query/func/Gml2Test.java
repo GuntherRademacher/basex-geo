@@ -37,7 +37,7 @@ public final class Gml2Test extends GmlTest {
         + "<gml:coordinates>1,1</gml:coordinates></gml:Point></gml:pointMember><gml:pointMember>"
         + "<gml:Point><gml:coordinates>1,2</gml:coordinates></gml:Point></gml:pointMember>"
         + "</gml:MultiPoint>"),
-        "#gml:MultiPoint");
+        "#Q{" + gmlUri() + "}MultiPoint");
     error(args(func, " text { 'srsName' }"), INVTYPE_X);
     error(args(func, " <gml:unknown/>"), GEO_READ);
     error(args(func, " <gml:Point><gml:coordinates>1 2</gml:coordinates></gml:Point>"),
