@@ -150,7 +150,7 @@ public abstract class Gml3Test extends GmlTest {
         " <gml:Polygon><gml:exterior><gml:LinearRing><gml:posList>1 1 2 1 5 3 1 1</gml:posList>"
         + "</gml:LinearRing></gml:exterior></gml:Polygon>"), false);
 
-    error(args(func, " text { 'a' }", " a"), NOCTX_X);
+    error(args(func, " text { 'a' }", " a"), INVTYPE_X);
     error(args(func, " <gml:unknown/>", " <gml:LinearRing><gml:posList>"
         + "1 1 2 1 5 3 1 1</gml:posList></gml:LinearRing>"), GEO_READ);
     error(args(func, " <gml:LinearRing><gml:posList>1 1 55 99 2 1</gml:posList></gml:LinearRing>",
