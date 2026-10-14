@@ -43,7 +43,7 @@ where `<jar>` must be replaced by the path to the module jar.
 
 ### Building from source
 
-The prerequisites for building the module are a JDK 17 and Maven. 
+The prerequisites for building the module are a JDK 21 and Maven. 
 
 Use the Geo Module release whose version matches the target BaseX version. For building the module, check out the source code and run
 

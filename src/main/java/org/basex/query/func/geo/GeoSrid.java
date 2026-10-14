@@ -1,8 +1,8 @@
 package org.basex.query.func.geo;
 
 import org.basex.query.*;
+import org.basex.query.value.*;
 import org.basex.query.value.item.*;
-import org.basex.util.*;
 
 /**
  * Function implementation.
@@ -12,7 +12,7 @@ import org.basex.util.*;
  */
 public final class GeoSrid extends GeoFn {
   @Override
-  public Item item(final QueryContext qc, final InputInfo ii) throws QueryException {
+  public Value value(final QueryContext qc) throws QueryException {
     return Itr.get(toGeometry(0, qc).getSRID());
   }
 }

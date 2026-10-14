@@ -4,9 +4,8 @@ import static org.basex.query.func.geo.GeoError.*;
 
 import org.basex.query.QueryContext;
 import org.basex.query.QueryException;
+import org.basex.query.value.Value;
 import org.basex.query.value.item.Bln;
-import org.basex.query.value.item.Item;
-import org.basex.util.InputInfo;
 import org.basex.util.Token;
 import org.basex.util.Util;
 import org.locationtech.jts.geom.Geometry;
@@ -19,7 +18,7 @@ import org.locationtech.jts.geom.Geometry;
  */
 public final class GeoRelate extends GeoFn {
   @Override
-  public Item item(final QueryContext qc, final InputInfo ii) throws QueryException {
+  public Value value(final QueryContext qc) throws QueryException {
     final Geometry geo1 = toGeometry(0, qc);
     final Geometry geo2 = toGeometry(1, qc);
     final byte[] matrix = toToken(exprs[2], qc);
