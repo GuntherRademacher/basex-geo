@@ -145,7 +145,7 @@ public final class Gml2Test extends GmlTest {
         + "</gml:outerBoundaryIs></gml:Polygon>"),
         false);
 
-    error(args(func, " text { 'a' }", " a"), NOCTX_X);
+    error(args(func, " text { 'a' }", " a"), INVTYPE_X);
     error(args(func, " <gml:unknown/>", " <gml:LinearRing><gml:coordinates>1,1 2,1 5,3 1,1"
         + "</gml:coordinates></gml:LinearRing>"), GEO_READ);
     error(args(func, " <gml:LinearRing><gml:coordinates>1,1 55,99 2,1</gml:coordinates>"
